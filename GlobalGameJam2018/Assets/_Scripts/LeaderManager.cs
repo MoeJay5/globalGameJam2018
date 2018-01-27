@@ -12,7 +12,7 @@ public class LeaderManager : MonoBehaviour
     private float x, z, speedReset;
 
     private const int smoothness = 10;
-    private Transform _t, _leader, _aim;
+    private Transform _t, _leader;
 
     private Animator _animator;
 
@@ -23,8 +23,7 @@ public class LeaderManager : MonoBehaviour
     {
         _t = transform;
 
-        _aim = _t.GetChild(0);
-        _leader = _aim.GetChild(0).transform;
+        _leader = _t.GetChild(0).transform;
         _animator = _t.GetChild(0).GetChild(0).GetComponent<Animator>();
         rb = _leader.GetComponent<Rigidbody>();
 
@@ -36,10 +35,23 @@ public class LeaderManager : MonoBehaviour
 
     void Update()
     {
-        x = Input.GetAxis("Horizontal");
-        z = Input.GetAxis("Vertical");
 
-        if (x != 0 || z != 0)
+        if (Input.GetKey("s"))
+        {
+            _leader.position += -_leader.forward * _speed * Time.deltaTime;
+        }
+
+        if (Input.GetKey("d"))
+        {
+            _leader.position += _leader.right * _speed * Time.deltaTime;
+        }
+
+        if (Input.GetKey("a"))
+        {
+            _leader.position += -_leader.right * _speed * Time.deltaTime;
+        }
+
+        if (Input.GetKey("w"))
         {
             if (_speed <= _speedMax)
             {
@@ -47,16 +59,8 @@ public class LeaderManager : MonoBehaviour
             }
 
             _isMoving = true;
-
-            x = x * _speed * Time.deltaTime;
-            z = z * _speed * Time.deltaTime;
-
-
-            _t.Translate(x, 0f, z);
-            Quaternion rotation = Quaternion.LookRotation(new Vector3(x, 0f, z));
-            _aim.rotation = Quaternion.Slerp(_aim.rotation, rotation, smoothness * Time.deltaTime);
+            _leader.position += _leader.forward * _speed * Time.deltaTime;
         }
-
         else
         {
             if (_speed <= speedReset) //Completely Stopped

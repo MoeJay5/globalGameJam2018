@@ -2,31 +2,23 @@
 
 public class CameraManager : MonoBehaviour {
 
-    public Transform _target;
-
-    public float _smoothSpeed = 10f;
-    public Vector3 _offset;
-
-    private Transform _t;
-
-    private Vector3 desiredPos;
-    private Vector3 smoothedPos;
-    private Vector3 mousePos;
+    public GameObject target;
+    public float rotateSpeed = 5f;
+    public float lerpSmooth;
+    public Vector3 offset;
 
     void Start()
     {
-        _t = transform;
+        offset = target.transform.position - transform.position;
     }
 
     void LateUpdate()
     {
-        //mousePos = new Vector3(Input.GetAxis("Mouse X") * 2, Input.GetAxis("Mouse Y") * 2, 0);
-        //desiredPos = _target.position + _offset + mousePos;
-        desiredPos = _target.position + _offset;
-        smoothedPos = Vector3.Slerp(_t.position, desiredPos, _smoothSpeed * Time.deltaTime);
-        //_t.position = smoothedPos + mousePos;
-        _t.position = smoothedPos;
+        float horizontal = Input.GetAxis("Mouse X") * rotateSpeed;
+        target.transform.Rotate(0f, horizontal, 0f);
 
-        _t.LookAt(_target);
+        float desiredAngle = target.transform.eulerAngles.y;
+        Quaternion rotation = Quaternion.Euler(0f, desiredAngle, 0f);
+        transform.position = target.transform.position - (rotation * offset);
     }
 }
