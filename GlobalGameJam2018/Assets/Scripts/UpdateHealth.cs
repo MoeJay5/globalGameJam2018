@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UpdateHealth : MonoBehaviour {
 
-	public GameObject player;
+	GameObject player;
 	public double currentHealth;
 	public double maxHealth;
 

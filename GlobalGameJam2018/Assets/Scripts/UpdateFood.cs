@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UpdateFood : MonoBehaviour {
 
-	public GameObject player;
+	GameObject player;
 	public int food;
 
 	// Use this for initialization

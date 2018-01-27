@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UpdateMedicine : MonoBehaviour {
 
-	public GameObject player;
+	GameObject player;
 	public int medicine;
 
 	// Use this for initialization

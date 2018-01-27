@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UpdateWater : MonoBehaviour {
 
-	public GameObject player;
+	GameObject player;
 	public int water;
 
 	// Use this for initialization
