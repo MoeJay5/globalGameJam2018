@@ -9,6 +9,14 @@ public class playerHealth : MonoBehaviour
     public int water = 3;
     public int medicine = 2;
 
+    #region Singeton
+    public static playerHealth instance;
+    void Awake()
+    {
+        instance = this;
+    }
+    #endregion
+    public GameObject player;
     public void takeDamage(int amount)
     {
         if (currentHealth <= 0)
@@ -31,6 +39,16 @@ public class playerHealth : MonoBehaviour
         takeDamage(1);
     }
 
+    public void turnIn(int resource)
+    {
+        if (resource == 1)
+            food--;
+        if (resource == 2)
+            water--;
+        if (resource == 3)
+            medicine--;
+        maxHealth += 10;
+    }
     public void rest()
     {
         double modifier = 0;
