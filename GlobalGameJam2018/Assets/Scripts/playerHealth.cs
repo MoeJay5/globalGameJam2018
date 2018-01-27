@@ -9,7 +9,7 @@ public class playerHealth : MonoBehaviour {
     public int medicine = 2;
 
     public void takeDamage(int amount) {
-        if (currentHealth <= 5) {
+        if (currentHealth <= 0) {
             currentHealth = 0;
             CancelInvoke();
             Debug.Log("Dead!");
@@ -19,8 +19,7 @@ public class playerHealth : MonoBehaviour {
         Debug.Log("Player Health = " + currentHealth);
     }
     void Start() {
-        //InvokeRepeating("damageOverTime", 0.0f, 1.0f);
-        InvokeRepeating("rest", 2.0f, 5.0f);
+        InvokeRepeating("damageOverTime", 0.0f, 1.0f);
     }    
     public void damageOverTime() {
         takeDamage(1);
