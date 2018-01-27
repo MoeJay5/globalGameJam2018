@@ -225,6 +225,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 100
+  food: 4
+  water: 3
+  medicine: 2
 --- !u!23 &570027057
 MeshRenderer:
   m_ObjectHideFlags: 0

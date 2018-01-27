@@ -2,8 +2,11 @@
 
 public class playerHealth : MonoBehaviour {
 
-    public const int maxHealth = 100;
-    public int currentHealth = maxHealth;
+    public const double maxHealth = 100;
+    public double currentHealth = maxHealth;
+    public int food = 4;
+    public int water = 3;
+    public int medicine = 2;
 
     public void takeDamage(int amount) {
         if (currentHealth <= 5) {
@@ -16,9 +19,32 @@ public class playerHealth : MonoBehaviour {
         Debug.Log("Player Health = " + currentHealth);
     }
     void Start() {
-        InvokeRepeating("damageOverTime", 0.0f, 1.0f);
+        //InvokeRepeating("damageOverTime", 0.0f, 1.0f);
+        InvokeRepeating("rest", 2.0f, 5.0f);
     }    
     public void damageOverTime() {
         takeDamage(1);
+    }
+
+    public void rest() {
+        double modifier = 0;
+        if (food >= 1) {
+            modifier++;
+            food--;
+        }
+        if (water >= 1) {
+            modifier++;
+            water--;
+        }
+        if (medicine >= 1) {
+            modifier++;
+            medicine--;
+        }
+        currentHealth = maxHealth * (modifier / 3);
+        Debug.Log("Current Health" + currentHealth);
+        Debug.Log("Modifier " + modifier);
+        Debug.Log("Current Health: = " + currentHealth);
+        if (currentHealth <= 0)
+            Debug.Log("Dead!");
     }
 }
