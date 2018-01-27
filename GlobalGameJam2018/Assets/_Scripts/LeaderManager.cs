@@ -16,8 +16,6 @@ public class LeaderManager : MonoBehaviour
 
     private Animator _animator;
 
-    private bool _jump;
-
     private Rigidbody rb;
     
 
@@ -82,13 +80,16 @@ public class LeaderManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && _leader.GetComponent<JumpDetection>().isGrounded)
         {
             rb.AddForce(new Vector3(0f, 300000f, 0f));
-            _jump = true;
         }
-        else
-            _jump = false;
 
-        _animator.SetBool("jump", _jump);
-        _animator.SetFloat("movementSpeed", _speed);
-        _animator.SetBool("isMoving", _isMoving);
+        //if (_isMoving)
+        //{
+        //    _aim.DetachChildren();
+        //    _aim.position = _leader.position;
+        //    _leader.SetParent(_aim);
+        //}
+
+        //_animator.SetFloat("movementSpeed", _speed);
+        //_animator.SetBool("isMoving", _isMoving);
     }
 }
