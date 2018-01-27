@@ -2,8 +2,8 @@
 
 public class playerHealth : MonoBehaviour {
 
-    public const double maxHealth = 100;
-    public double currentHealth = maxHealth;
+    public double maxHealth = 100;
+	public double currentHealth;
     public int food = 4;
     public int water = 3;
     public int medicine = 2;
@@ -20,6 +20,7 @@ public class playerHealth : MonoBehaviour {
     }
     void Start() {
         InvokeRepeating("damageOverTime", 0.0f, 1.0f);
+		currentHealth = maxHealth;
     }    
     public void damageOverTime() {
         takeDamage(1);
