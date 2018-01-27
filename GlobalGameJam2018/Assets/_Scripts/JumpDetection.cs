@@ -9,7 +9,7 @@ public class JumpDetection : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == "Ground")
+		if (col.gameObject.tag == "Ground")
         {
             isGrounded = true;
         }
