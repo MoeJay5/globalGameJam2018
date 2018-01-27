@@ -18,7 +18,6 @@ public class LeaderManager : MonoBehaviour
 
     private Rigidbody rb;
     
-
     void Start()
     {
         _t = transform;
@@ -35,23 +34,22 @@ public class LeaderManager : MonoBehaviour
 
     void Update()
     {
-
-        if (Input.GetKey("s"))
+		if (Input.GetKey("s"))
         {
             _leader.position += -_leader.forward * _speed * Time.deltaTime;
         }
 
-        if (Input.GetKey("d"))
+		if (Input.GetKey("d"))
         {
             _leader.position += _leader.right * _speed * Time.deltaTime;
         }
 
-        if (Input.GetKey("a"))
+		if (Input.GetKey("a"))
         {
             _leader.position += -_leader.right * _speed * Time.deltaTime;
         }
 
-        if (Input.GetKey("w"))
+		if (Input.GetKey("w"))
         {
             if (_speed <= _speedMax)
             {
@@ -77,7 +75,7 @@ public class LeaderManager : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && _leader.GetComponent<JumpDetection>().isGrounded)
+		if (Input.GetKeyDown(KeyCode.Space) && _leader.GetComponent<JumpDetection> ().isGrounded)
         {
             rb.AddForce(new Vector3(0f, 300000f, 0f));
         }

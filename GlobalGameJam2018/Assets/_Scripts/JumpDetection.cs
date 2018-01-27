@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class JumpDetection : MonoBehaviour
 {
-    [HideInInspector]
     public bool isGrounded = false;
 
-    void OnCollisionEnter(Collision col)
+    void OnCollisionStay(Collision col)
     {
-		if (col.gameObject.tag == "Ground")
+		ContactPoint contact = col.contacts[0];
+		if (contact.point.y < gameObject.transform.position.y)
         {
             isGrounded = true;
         }
@@ -17,9 +17,6 @@ public class JumpDetection : MonoBehaviour
 
     void OnCollisionExit(Collision col)
     {
-        if (col.gameObject.tag == "Ground")
-        {
             isGrounded = false;
-        }
     }
 }
