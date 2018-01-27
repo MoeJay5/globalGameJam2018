@@ -4,7 +4,6 @@ public class CameraManager : MonoBehaviour {
 
     public GameObject target;
     public float rotateSpeed = 5f;
-    public float lerpSmooth;
     public Vector3 offset;
 
     void Start()
