@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+ using UnityEngine.SceneManagement;
 
 public class playerHealth : MonoBehaviour
 {
@@ -80,7 +81,7 @@ public class playerHealth : MonoBehaviour
         //Debug.Log("Modifier " + modifier);
         //Debug.Log("Current Health: = " + currentHealth);
         if (currentHealth <= 0)
-            Debug.Log("Dead!");
+              SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
 
         if (microphone ==1 && battery ==1 && controllerBox == 1 && broadcastDish == 1 ){
             //Game win condition / cutscene

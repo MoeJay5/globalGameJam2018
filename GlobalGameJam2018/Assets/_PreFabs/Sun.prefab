@@ -51,7 +51,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.990596, b: 0.9852941, a: 1}
-  m_Intensity: 1.1
+  m_Intensity: 0.94
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -59,7 +59,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.648
+    m_Strength: 0.79
     m_Bias: 0.2
     m_NormalBias: 1.01
     m_NearPlane: 0.12

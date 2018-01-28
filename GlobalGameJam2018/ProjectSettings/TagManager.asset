@@ -9,6 +9,10 @@ TagManager:
   - medicine
   - water
   - Building
+  - controllerBox
+  - broadcastDish
+  - battery
+  - microphone
   layers:
   - Default
   - TransparentFX
