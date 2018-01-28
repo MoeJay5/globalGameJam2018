@@ -1327,7 +1327,7 @@ GameObject:
   - component: {fileID: 114478088821705900}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2460,7 +2460,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1177849217906536}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.9, y: 0.25, z: 0.17619848}
+  m_LocalPosition: {x: -390.9, y: -15.28, z: -72.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4934514207044758}
@@ -2929,6 +2929,10 @@ MonoBehaviour:
   food: 4
   water: 3
   medicine: 2
+  microphone: 0
+  controllerBox: 0
+  broadcastDish: 0
+  battery: 0
   player: {fileID: 1974755547169818}
 --- !u!114 &114478088821705900
 MonoBehaviour:
@@ -2941,7 +2945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ceba18d72c1bb945becb78617368786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 0}
+  particle: {fileID: 1342559894954560, guid: 1860de1d53a1294428b5757948889b67, type: 2}
 --- !u!114 &114671069155632496
 MonoBehaviour:
   m_ObjectHideFlags: 1

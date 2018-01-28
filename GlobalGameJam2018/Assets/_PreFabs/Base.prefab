@@ -55,10 +55,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4042814071951648}
   - component: {fileID: 33985009529820518}
-  - component: {fileID: 195119034345971388}
   - component: {fileID: 136495002299012612}
   - component: {fileID: 54398879949936924}
-  - component: {fileID: 114514120671116020}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -73,8 +71,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1977459401112522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.33, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -127.3, y: 32.3, z: 43.2}
+  m_LocalScale: {x: 2.4, y: 1.11, z: 1.71}
   m_Children:
   - {fileID: 4165545774439790}
   - {fileID: 4448820390395178}
@@ -199,18 +197,6 @@ MonoBehaviour:
   textBox: {fileID: 0}
   destroyWhenActivated: 1
   requireButtonPress: 0
---- !u!114 &114514120671116020
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1977459401112522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5debb2980c7c15c4db3a77f47a24aaf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookRadius: 10
 --- !u!114 &114669634677872332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,7 +211,7 @@ MonoBehaviour:
   asset: {fileID: 4900000, guid: c169bdcf2a020914eb8c1e6051e5c40b, type: 3}
   startLine: 0
   endLine: 0
-  textBox: {fileID: 0}
+  textBox: {fileID: 114830230905947988, guid: 305dbb46c1ffe774692c2df399b11939, type: 2}
   destroyWhenActivated: 0
   requireButtonPress: 0
 --- !u!136 &136495002299012612
@@ -241,24 +227,3 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!195 &195119034345971388
-NavMeshAgent:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1977459401112522}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.2
-  m_Speed: 2
-  m_Acceleration: 20
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 2
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
