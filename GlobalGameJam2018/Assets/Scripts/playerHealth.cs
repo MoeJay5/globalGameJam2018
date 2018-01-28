@@ -58,6 +58,7 @@ public class playerHealth : MonoBehaviour
     }
     public void rest()
     {
+        Debug.Log("rested");
         double modifier = 0;
         if (food >= 1)
         {
