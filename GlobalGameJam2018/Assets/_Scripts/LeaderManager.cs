@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class LeaderManager : MonoBehaviour
 {
@@ -18,17 +19,24 @@ public class LeaderManager : MonoBehaviour
 
     private Animator _playerAnimator;
     private Animator _cameraAnimator;
-
-    private Animator _animator;
+    
     private bool _jump;
 
     private Rigidbody rb;
 
+    public AudioMixerSnapshot ambientSound;
+    public AudioMixerSnapshot grannyVoice;
     public AudioSource[] playerSounds;
     public AudioSource running;
     public AudioSource ambient;
+    public AudioSource granny;
     private bool isPlaying = false;
-    
+    float bpm = 128;
+
+    private float m_TransitionIn;
+    private float m_TransitionOut;
+    private float m_QuarterNote;
+
     void Start()
     {
         canMove = true;
@@ -36,7 +44,6 @@ public class LeaderManager : MonoBehaviour
         _leader = _t.GetChild(0).transform;
         _playerAnimator = _t.GetChild(0).GetComponent<Animator>();
         _cameraAnimator = _t.GetChild(0).GetChild(1).GetComponent<Animator>();
-        _animator = _t.GetChild(0).GetComponent<Animator>();
 
         rb = _leader.GetComponent<Rigidbody>();
 
@@ -45,9 +52,14 @@ public class LeaderManager : MonoBehaviour
 
         speedReset = _speed;
 
+        m_QuarterNote = 60 / bpm;
+        m_TransitionIn = m_QuarterNote;
+        m_TransitionOut = m_QuarterNote * 32;
+
         playerSounds = GetComponentsInChildren<AudioSource>();
         running = playerSounds[0];
         ambient = playerSounds[1];
+        granny = playerSounds[2];
     }
 
     void Update()
@@ -104,13 +116,7 @@ public class LeaderManager : MonoBehaviour
             }
             else
                 _jump = false;
-
-            _animator.SetBool("jump", _jump);
-            _animator.SetFloat("movementSpeed", _speed);
-            _animator.SetBool("isMoving", _isMoving);
         }
-        else
-            _jump = false;
 
         _playerAnimator.SetBool("isJumping", _jump);
         _playerAnimator.SetFloat("movementSpeed", _speed);
@@ -129,6 +135,23 @@ public class LeaderManager : MonoBehaviour
             yield return new WaitForSeconds(playerSounds[clipNum].clip.length);
             isPlaying = false;
             yield return null;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    { 
+        if (other.CompareTag("Granny"))
+        {
+            Debug.Log("GRANNY SOUND PLAYING THANK GOD!");
+            grannyVoice.TransitionTo(m_TransitionIn);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Granny"))
+        {
+            ambientSound.TransitionTo(m_TransitionOut);
         }
     }
 }

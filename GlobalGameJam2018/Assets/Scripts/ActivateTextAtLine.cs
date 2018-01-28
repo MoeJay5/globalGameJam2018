@@ -10,10 +10,12 @@ public class ActivateTextAtLine : MonoBehaviour {
     public bool destroyWhenActivated;
     public bool requireButtonPress;
     private bool waitForPress;
-	// Use this for initialization
-	void Start () {
+    public AudioSource granny;
+    // Use this for initialization
+    void Start () {
         textBox = FindObjectOfType<TextBoxManager>();
-	}
+        granny = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -40,6 +42,7 @@ public class ActivateTextAtLine : MonoBehaviour {
                 return;
             }
             Debug.Log("collided with player");
+            granny.Play();
             textBox.reloadScript(asset);
             textBox.currentLine = startLine;
             textBox.endAtLine = endLine;

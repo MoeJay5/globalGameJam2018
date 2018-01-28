@@ -9,6 +9,7 @@ TagManager:
   - medicine
   - water
   - Building
+  - Granny
   layers:
   - Default
   - TransparentFX
