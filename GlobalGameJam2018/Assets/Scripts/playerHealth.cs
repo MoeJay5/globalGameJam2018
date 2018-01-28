@@ -8,7 +8,7 @@ public class playerHealth : MonoBehaviour
     public int food = 4;
     public int water = 3;
     public int medicine = 2;
-
+    //public GameObject bar = GameObject.FindGameObjectWithTag("HealthBar");
     #region Singeton
     public static playerHealth instance;
     void Awake()
@@ -27,7 +27,9 @@ public class playerHealth : MonoBehaviour
         }
         currentHealth -= amount;
         //Debug.Log("Took Damage");
-        //Debug.Log("Player Health = " + currentHealth);
+        Debug.Log("Player Health = " + currentHealth);
+        SimpleHealthBar.UpdateBar("healthBar", (float)currentHealth, (float)maxHealth);
+        SimpleHealthBar.UpdateBar("smallHealthBar", (float)currentHealth, (float)maxHealth);
     }
     void Start()
     {

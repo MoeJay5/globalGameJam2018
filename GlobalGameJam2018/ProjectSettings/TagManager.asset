@@ -9,6 +9,7 @@ TagManager:
   - medicine
   - water
   - Building
+  - HealthBar
   layers:
   - Default
   - TransparentFX
