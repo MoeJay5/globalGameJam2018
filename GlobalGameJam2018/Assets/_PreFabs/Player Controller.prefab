@@ -1323,6 +1323,8 @@ GameObject:
   - component: {fileID: 54332253951232552}
   - component: {fileID: 95147656417895108}
   - component: {fileID: 114760758984245868}
+  - component: {fileID: 114430192019921938}
+  - component: {fileID: 114478088821705900}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2911,6 +2913,35 @@ MonoBehaviour:
   _speedMax: 11
   _isMoving: 0
   canMove: 0
+--- !u!114 &114430192019921938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1974755547169818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5f75f90fcbfe145941b1ed4895d3f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  food: 4
+  water: 3
+  medicine: 2
+  player: {fileID: 1974755547169818}
+--- !u!114 &114478088821705900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1974755547169818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ceba18d72c1bb945becb78617368786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 0}
 --- !u!114 &114671069155632496
 MonoBehaviour:
   m_ObjectHideFlags: 1

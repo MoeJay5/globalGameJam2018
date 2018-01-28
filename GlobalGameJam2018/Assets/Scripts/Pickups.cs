@@ -4,32 +4,30 @@ using UnityEngine;
 
 public class Pickups : MonoBehaviour {
 
+    public GameObject particle; 
+
 	// Use this for initialization
 	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        particle = GameObject.Find("PickupParticle");
+    }
 
     void OnTriggerEnter(Collider other) {
         if (other.tag.Equals("food"))
         {
-            Debug.Log("food");
             Destroy(other.gameObject);
+            Instantiate(particle);
             gameObject.GetComponent<playerHealth>().food++;
         }
         if (other.tag.Equals("medicine"))
         {
-            Debug.Log("medicine");
             Destroy(other.gameObject);
+            Instantiate(particle);
             gameObject.GetComponent<playerHealth>().medicine++;
         }
         if (other.tag.Equals("water"))
         {
-            Debug.Log("water");
             Destroy(other.gameObject);
+            Instantiate(particle);
             gameObject.GetComponent<playerHealth>().water++;
         }
     }
