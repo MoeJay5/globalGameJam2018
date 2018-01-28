@@ -78,6 +78,8 @@ public class LeaderManager : MonoBehaviour
 
                 _isMoving = true;
                 _leader.position += _leader.forward * _speed * Time.deltaTime;
+
+                StartCoroutine(PlaySound(0));
             }
             else
             {
