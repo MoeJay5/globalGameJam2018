@@ -28,8 +28,10 @@ public class playerHealth : MonoBehaviour
         currentHealth -= amount;
         //Debug.Log("Took Damage");
         //Debug.Log("Player Health = " + currentHealth);
+        SimpleHealthBar.UpdateBar("healthBar", (float)currentHealth, (float)maxHealth);
+        SimpleHealthBar.UpdateBar("smallBar", (float)currentHealth, (float)maxHealth);
     }
-    void Start()
+        void Start()
     {
         InvokeRepeating("damageOverTime", 0.0f, 1.0f);
         currentHealth = maxHealth;
