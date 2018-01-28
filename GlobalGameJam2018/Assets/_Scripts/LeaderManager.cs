@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class LeaderManager : MonoBehaviour
 {
@@ -21,7 +23,20 @@ public class LeaderManager : MonoBehaviour
     private bool _jump;
 
     private Rigidbody rb;
-    
+
+    public AudioMixerSnapshot ambientSound;
+    public AudioMixerSnapshot grannyVoice;
+    public AudioSource[] playerSounds;
+    public AudioSource running;
+    public AudioSource ambient;
+    public AudioSource granny;
+    private bool isPlaying = false;
+    float bpm = 128;
+
+    private float m_TransitionIn;
+    private float m_TransitionOut;
+    private float m_QuarterNote;
+
     void Start()
     {
         canMove = true;
@@ -36,6 +51,15 @@ public class LeaderManager : MonoBehaviour
             _speedMax = _speed;
 
         speedReset = _speed;
+
+        m_QuarterNote = 60 / bpm;
+        m_TransitionIn = m_QuarterNote;
+        m_TransitionOut = m_QuarterNote * 32;
+
+        playerSounds = GetComponentsInChildren<AudioSource>();
+        running = playerSounds[0];
+        ambient = playerSounds[1];
+        granny = playerSounds[2];
     }
 
     void Update()
@@ -66,6 +90,8 @@ public class LeaderManager : MonoBehaviour
 
                 _isMoving = true;
                 _leader.position += _leader.forward * _speed * Time.deltaTime;
+
+                StartCoroutine(PlaySound(0));
             }
             else
             {
@@ -98,5 +124,34 @@ public class LeaderManager : MonoBehaviour
         _cameraAnimator.SetBool("jump", _jump);
         _cameraAnimator.SetFloat("movementSpeed", _speed);
         _cameraAnimator.SetBool("isMoving", _isMoving);
+    }
+
+    IEnumerator PlaySound(int clipNum)
+    {
+        if(!isPlaying)
+        {
+            isPlaying = true;
+            playerSounds[clipNum].Play();
+            yield return new WaitForSeconds(playerSounds[clipNum].clip.length);
+            isPlaying = false;
+            yield return null;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    { 
+        if (other.CompareTag("Granny"))
+        {
+            Debug.Log("GRANNY SOUND PLAYING THANK GOD!");
+            grannyVoice.TransitionTo(m_TransitionIn);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Granny"))
+        {
+            ambientSound.TransitionTo(m_TransitionOut);
+        }
     }
 }
