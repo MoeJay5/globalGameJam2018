@@ -87,18 +87,12 @@ public class LeaderManager : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space) && _leader.GetComponent<JumpDetection>().isGrounded)
             {
-                rb.AddForce(new Vector3(0f, 300000f, 0f));
+                rb.AddForce(new Vector3(0f, 600000f, 0f));
                 _jump = true;
             }
             else
                 _jump = false;
-
-            _animator.SetBool("jump", _jump);
-            _animator.SetFloat("movementSpeed", _speed);
-            _animator.SetBool("isMoving", _isMoving);
         }
-        else
-            _jump = false;
 
         _playerAnimator.SetBool("isJumping", _jump);
         _playerAnimator.SetFloat("movementSpeed", _speed);
