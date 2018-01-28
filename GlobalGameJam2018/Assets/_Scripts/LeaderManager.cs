@@ -18,7 +18,6 @@ public class LeaderManager : MonoBehaviour
     private Animator _playerAnimator;
     private Animator _cameraAnimator;
 
-    private Animator _animator;
     private bool _jump;
 
     private Rigidbody rb;
@@ -30,7 +29,6 @@ public class LeaderManager : MonoBehaviour
         _leader = _t.GetChild(0).transform;
         _playerAnimator = _t.GetChild(0).GetComponent<Animator>();
         _cameraAnimator = _t.GetChild(0).GetChild(1).GetComponent<Animator>();
-        _animator = _t.GetChild(0).GetComponent<Animator>();
 
         rb = _leader.GetComponent<Rigidbody>();
 
@@ -87,18 +85,12 @@ public class LeaderManager : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space) && _leader.GetComponent<JumpDetection>().isGrounded)
             {
-                rb.AddForce(new Vector3(0f, 300000f, 0f));
+                rb.AddForce(new Vector3(0f, 600000f, 0f));
                 _jump = true;
             }
             else
                 _jump = false;
-
-            _animator.SetBool("jump", _jump);
-            _animator.SetFloat("movementSpeed", _speed);
-            _animator.SetBool("isMoving", _isMoving);
         }
-        else
-            _jump = false;
 
         _playerAnimator.SetBool("isJumping", _jump);
         _playerAnimator.SetFloat("movementSpeed", _speed);

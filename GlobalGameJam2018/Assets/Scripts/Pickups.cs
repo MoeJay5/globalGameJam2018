@@ -4,33 +4,51 @@ using UnityEngine;
 
 public class Pickups : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public GameObject particle; 
 
     void OnTriggerEnter(Collider other) {
         if (other.tag.Equals("food"))
         {
-            Debug.Log("food");
             Destroy(other.gameObject);
+            Instantiate(particle, transform.position, transform.rotation);
             gameObject.GetComponent<playerHealth>().food++;
         }
         if (other.tag.Equals("medicine"))
         {
-            Debug.Log("medicine");
             Destroy(other.gameObject);
+            Instantiate(particle, transform.position, transform.rotation);
             gameObject.GetComponent<playerHealth>().medicine++;
         }
         if (other.tag.Equals("water"))
         {
-            Debug.Log("water");
             Destroy(other.gameObject);
+            Instantiate(particle, transform.position, transform.rotation);
             gameObject.GetComponent<playerHealth>().water++;
+        }
+
+          if (other.tag.Equals("controllerBox"))
+        {
+            Destroy(other.gameObject);
+            Instantiate(particle, transform.position, transform.rotation);
+            gameObject.GetComponent<playerHealth>().controllerBox++;
+        }
+          if (other.tag.Equals("broadcastDish"))
+        {
+            Destroy(other.gameObject);
+            Instantiate(particle, transform.position, transform.rotation);
+            gameObject.GetComponent<playerHealth>().broadcastDish++;
+        }
+          if (other.tag.Equals("battery"))
+        {
+            Destroy(other.gameObject);
+            Instantiate(particle, transform.position, transform.rotation);
+            gameObject.GetComponent<playerHealth>().battery++;
+        }
+          if (other.tag.Equals("microphone"))
+        {
+            Destroy(other.gameObject);
+            Instantiate(particle, transform.position, transform.rotation);
+            gameObject.GetComponent<playerHealth>().microphone++;
         }
     }
 }
