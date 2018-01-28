@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class LeaderManager : MonoBehaviour
@@ -22,6 +23,11 @@ public class LeaderManager : MonoBehaviour
     private bool _jump;
 
     private Rigidbody rb;
+
+    public AudioSource[] playerSounds;
+    public AudioSource running;
+    public AudioSource ambient;
+    private bool isPlaying = false;
     
     void Start()
     {
@@ -38,6 +44,10 @@ public class LeaderManager : MonoBehaviour
             _speedMax = _speed;
 
         speedReset = _speed;
+
+        playerSounds = GetComponentsInChildren<AudioSource>();
+        running = playerSounds[0];
+        ambient = playerSounds[1];
     }
 
     void Update()
@@ -106,5 +116,17 @@ public class LeaderManager : MonoBehaviour
         _cameraAnimator.SetBool("jump", _jump);
         _cameraAnimator.SetFloat("movementSpeed", _speed);
         _cameraAnimator.SetBool("isMoving", _isMoving);
+    }
+
+    IEnumerator PlaySound(int clipNum)
+    {
+        if(!isPlaying)
+        {
+            isPlaying = true;
+            playerSounds[clipNum].Play();
+            yield return new WaitForSeconds(playerSounds[clipNum].clip.length);
+            isPlaying = false;
+            yield return null;
+        }
     }
 }
