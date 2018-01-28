@@ -14,7 +14,8 @@ public class LeaderManager : MonoBehaviour
     private const int smoothness = 10;
     private Transform _t, _leader;
 
-    private Animator _animator;
+    private Animator _playerAnimator;
+    private Animator _cameraAnimator;
 
     private bool _jump;
 
@@ -23,9 +24,10 @@ public class LeaderManager : MonoBehaviour
     void Start()
     {
         _t = transform;
-
         _leader = _t.GetChild(0).transform;
-        _animator = _t.GetChild(0).GetChild(0).GetComponent<Animator>();
+        _playerAnimator = _t.GetChild(0).GetComponent<Animator>();
+        _cameraAnimator = _t.GetChild(0).GetChild(1).GetComponent<Animator>();
+
         rb = _leader.GetComponent<Rigidbody>();
 
         if (_speed > _speedMax)
@@ -85,8 +87,11 @@ public class LeaderManager : MonoBehaviour
         else
             _jump = false;
 
-        _animator.SetBool("jump", _jump);
-        _animator.SetFloat("movementSpeed", _speed);
-        _animator.SetBool("isMoving", _isMoving);
+        _playerAnimator.SetBool("isJumping", _jump);
+        _playerAnimator.SetFloat("movementSpeed", _speed);
+        _playerAnimator.SetBool("isMoving", _isMoving);
+        _cameraAnimator.SetBool("jump", _jump);
+        _cameraAnimator.SetFloat("movementSpeed", _speed);
+        _cameraAnimator.SetBool("isMoving", _isMoving);
     }
 }
