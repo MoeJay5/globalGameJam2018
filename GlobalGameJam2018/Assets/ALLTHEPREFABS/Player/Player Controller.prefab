@@ -2929,6 +2929,10 @@ MonoBehaviour:
   food: 4
   water: 3
   medicine: 2
+  microphone: 0
+  controllerBox: 0
+  broadcastDish: 0
+  battery: 0
   player: {fileID: 1974755547169818}
 --- !u!114 &114478088821705900
 MonoBehaviour:
