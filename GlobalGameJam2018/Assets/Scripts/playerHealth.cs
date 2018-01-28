@@ -23,11 +23,11 @@ public class playerHealth : MonoBehaviour
         {
             currentHealth = 0;
             CancelInvoke();
-            Debug.Log("Dead!");
+            //Debug.Log("Dead!");
         }
         currentHealth -= amount;
-        Debug.Log("Took Damage");
-        Debug.Log("Player Health = " + currentHealth);
+        //Debug.Log("Took Damage");
+        //Debug.Log("Player Health = " + currentHealth);
     }
     void Start()
     {
@@ -68,9 +68,9 @@ public class playerHealth : MonoBehaviour
             medicine--;
         }
         currentHealth = maxHealth * (modifier / 3);
-        Debug.Log("Current Health" + currentHealth);
-        Debug.Log("Modifier " + modifier);
-        Debug.Log("Current Health: = " + currentHealth);
+        //Debug.Log("Current Health" + currentHealth);
+        //Debug.Log("Modifier " + modifier);
+        //Debug.Log("Current Health: = " + currentHealth);
         if (currentHealth <= 0)
             Debug.Log("Dead!");
     }

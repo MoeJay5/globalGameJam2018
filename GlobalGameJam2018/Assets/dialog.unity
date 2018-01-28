@@ -224,6 +224,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb9b31854f0ee3541a290094e31be5d3, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &486318738 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114423867370112028, guid: 0b91d4a0a3820dd4597c5c80d77531ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1935867746}
+  m_Script: {fileID: 11500000, guid: 6b3a33c83bcc6df4d8789dba64c3df53, type: 3}
 --- !u!1001 &504694646
 Prefab:
   m_ObjectHideFlags: 0
@@ -302,8 +308,10 @@ MonoBehaviour:
   textFile: {fileID: 4900000, guid: 2b3d79e9590bc6a468312b94462daeda, type: 3}
   textLines: []
   currentLine: 0
-  endAtLine: 0
-  player: {fileID: 0}
+  endAtLine: 2
+  player: {fileID: 486318738}
+  textBoxActive: 0
+  stopPlayerMovement: 0
 --- !u!4 &514385605
 Transform:
   m_ObjectHideFlags: 0
@@ -315,75 +323,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &658677530 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4282390724874364, guid: a01d7a4cd8b891045ae4621f06d94c63,
     type: 2}
   m_PrefabInternal: {fileID: 504694646}
---- !u!1 &693886646
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 693886649}
-  - component: {fileID: 693886648}
-  - component: {fileID: 693886647}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &693886647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 693886646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &693886648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 693886646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 5
---- !u!4 &693886649
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 693886646}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &874620514
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +417,7 @@ RectTransform:
   m_Children:
   - {fileID: 165885931}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -500,6 +446,65 @@ MonoBehaviour:
   water: 3
   medicine: 2
   player: {fileID: 997876801}
+--- !u!1 &1128394974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1128394975}
+  - component: {fileID: 1128394977}
+  - component: {fileID: 1128394976}
+  m_Layer: 0
+  m_Name: dialogZone (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1128394975
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1128394974}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.010000229, y: 1.03, z: 0.119999886}
+  m_LocalScale: {x: 0.79060996, y: 2.00298, z: 0.84856}
+  m_Children: []
+  m_Father: {fileID: 658677530}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1128394976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1128394974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d920e614e698af946b733cd1df9f9236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asset: {fileID: 4900000, guid: 2b3d79e9590bc6a468312b94462daeda, type: 3}
+  startLine: 0
+  endLine: 1
+  textBox: {fileID: 0}
+  destroyWhenActivated: 0
+  requireButtonPress: 1
+--- !u!65 &1128394977
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1128394974}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 20, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1289207252
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,8 +671,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1644662305}
-  - component: {fileID: 1644662307}
   - component: {fileID: 1644662306}
+  - component: {fileID: 1644662308}
   m_Layer: 0
   m_Name: dialogZone
   m_TagString: Untagged
@@ -695,25 +700,28 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1644662304}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 20, y: 20, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1644662307
+--- !u!114 &1644662308
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1644662304}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 614158b24ae8b04498ccb22908fb78f4, type: 3}
+  m_Script: {fileID: 11500000, guid: d920e614e698af946b733cd1df9f9236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: 
-  textFile: {fileID: 0}
-  textLines: []
+  asset: {fileID: 4900000, guid: 2b3d79e9590bc6a468312b94462daeda, type: 3}
+  startLine: 0
+  endLine: 1
+  textBox: {fileID: 0}
+  destroyWhenActivated: 1
+  requireButtonPress: 0
 --- !u!1001 &1763761487
 Prefab:
   m_ObjectHideFlags: 0
@@ -794,6 +802,10 @@ Prefab:
     - target: {fileID: 4743463623083014, guid: 0b91d4a0a3820dd4597c5c80d77531ef, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613961261133376, guid: 0b91d4a0a3820dd4597c5c80d77531ef, type: 2}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b91d4a0a3820dd4597c5c80d77531ef, type: 2}

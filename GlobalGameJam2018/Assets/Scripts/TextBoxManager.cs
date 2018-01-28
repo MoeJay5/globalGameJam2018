@@ -15,8 +15,15 @@ public class TextBoxManager : MonoBehaviour {
 
     public LeaderManager player;
 
+    public bool textBoxActive;
+    public bool stopPlayerMovement;
+
     private void Start()
     {
+        if (textBoxActive)
+            enableTextBox();
+        else
+            disableTextBox();
         if (textFile != null)
         {
             textLines = (textFile.text.Split('\n'));
@@ -28,11 +35,37 @@ public class TextBoxManager : MonoBehaviour {
 
     private void Update()
     {
+        if (!textBoxActive)
+            return;
+        player.canMove = false;
+        if (currentLine > endAtLine) {
+            disableTextBox();
+            return;
+        }
         theText.text = textLines[currentLine];
         if (Input.GetKeyDown(KeyCode.Return))
             currentLine++;
-        if (currentLine > endAtLine)
-            textBox.SetActive(false);
+        
+    }
+    public void enableTextBox() {
+        textBox.SetActive(true);
+        textBoxActive = true;
+        if (stopPlayerMovement)
+            player.canMove = false;
+    }
+    public void disableTextBox() {
+        textBox.SetActive(false);
+        textBoxActive = false;
+        player.canMove = true;
+    }
+    public void reloadScript(TextAsset asset)
+    {
+        if (asset != null)
+        {
+            Debug.Log("asset not null");
+            textLines = new string[1];
+            textLines = (asset.text.Split('\n'));
 
+        }
     }
 }
