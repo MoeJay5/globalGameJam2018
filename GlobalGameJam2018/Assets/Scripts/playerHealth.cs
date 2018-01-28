@@ -9,6 +9,11 @@ public class playerHealth : MonoBehaviour
     public int water = 3;
     public int medicine = 2;
 
+    public int microphone = 0;
+    public int controllerBox = 0;
+    public int broadcastDish = 0;
+    public int battery = 0;
+
     #region Singeton
     public static playerHealth instance;
     void Awake()
@@ -31,7 +36,7 @@ public class playerHealth : MonoBehaviour
         SimpleHealthBar.UpdateBar("healthBar", (float)currentHealth, (float)maxHealth);
         SimpleHealthBar.UpdateBar("smallBar", (float)currentHealth, (float)maxHealth);
     }
-        void Start()
+    void Start()
     {
         InvokeRepeating("damageOverTime", 0.0f, 1.0f);
         currentHealth = maxHealth;
@@ -75,5 +80,9 @@ public class playerHealth : MonoBehaviour
         //Debug.Log("Current Health: = " + currentHealth);
         if (currentHealth <= 0)
             Debug.Log("Dead!");
+
+        if (microphone ==1 && battery ==1 && controllerBox == 1 && broadcastDish == 1 ){
+            //Game win condition / cutscene
+        }
     }
 }

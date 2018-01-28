@@ -30,5 +30,30 @@ public class Pickups : MonoBehaviour {
             Instantiate(particle);
             gameObject.GetComponent<playerHealth>().water++;
         }
+
+          if (other.tag.Equals("controllerBox"))
+        {
+            Destroy(other.gameObject);
+            Instantiate(particle);
+            gameObject.GetComponent<playerHealth>().controllerBox++;
+        }
+          if (other.tag.Equals("broadcastDish"))
+        {
+            Destroy(other.gameObject);
+            Instantiate(particle);
+            gameObject.GetComponent<playerHealth>().broadcastDish++;
+        }
+          if (other.tag.Equals("battery"))
+        {
+            Destroy(other.gameObject);
+            Instantiate(particle);
+            gameObject.GetComponent<playerHealth>().battery++;
+        }
+          if (other.tag.Equals("microphone"))
+        {
+            Destroy(other.gameObject);
+            Instantiate(particle);
+            gameObject.GetComponent<playerHealth>().microphone++;
+        }
     }
 }
