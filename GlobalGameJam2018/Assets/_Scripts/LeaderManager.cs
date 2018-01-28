@@ -18,7 +18,6 @@ public class LeaderManager : MonoBehaviour
     private Animator _playerAnimator;
     private Animator _cameraAnimator;
 
-    private Animator _animator;
     private bool _jump;
 
     private Rigidbody rb;
@@ -30,7 +29,6 @@ public class LeaderManager : MonoBehaviour
         _leader = _t.GetChild(0).transform;
         _playerAnimator = _t.GetChild(0).GetComponent<Animator>();
         _cameraAnimator = _t.GetChild(0).GetChild(1).GetComponent<Animator>();
-        _animator = _t.GetChild(0).GetComponent<Animator>();
 
         rb = _leader.GetComponent<Rigidbody>();
 
